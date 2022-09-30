@@ -16,7 +16,7 @@ class SittersController < ApplicationController
     @sitter = Sitter.new(sitter_params)
     @sitter.user = current_user
     if @sitter.save
-      redirect_to sitter_path(@sitter)
+      redirect_to user_sitter_path(@sitter)
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class SittersController < ApplicationController
   def update
     @sitter.update(sitter_params)
     if @sitter.save
-      redirect_to sitter_path(@sitter)
+      redirect_to user_sitter_path(@sitter)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,6 +35,7 @@ class SittersController < ApplicationController
 
   def destroy
     @sitter.destroy
+    # borrar las booking de este sitter
   end
 
   private
