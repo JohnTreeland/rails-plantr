@@ -3,13 +3,13 @@ class BookingsController < ApplicationController
   before_action :set_sitter, only: %i[new create]
 
   def index
-     @bookings = Booking.where(user: current_user) # user_id:  current_user.id
+    @bookings = Booking.where(user: current_user) # user_id:  current_user.id
   end
 
   def show; end
 
   def new
-        @booking = Booking.new
+    @booking = Booking.new
   end
 
   def create
@@ -53,6 +53,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:end_date, :start_date, :plants_quantity)
   end
-end
-
 end
