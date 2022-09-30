@@ -1,1 +1,16 @@
-<%= link_to "Ver todos los cuidadores", sitters_path, class:"btn btn-primary" %>
+home-css-complit
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,1.1)), url(https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f);">
+  <div class="container">
+  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+    <div class="search-form-control form-group">
+      <input class="form-control" type="text" placeholder="Looking for Sitte" aria-label="Disabled input example">
+      <button name="button" type="submit" class="btn btn-primary my-1 mg-1">
+        <i class="fas fa-search"></i> Search
+      </button>
+  </div>
+  <% end %>
+  </form>
+  </div>
+</div>
+
