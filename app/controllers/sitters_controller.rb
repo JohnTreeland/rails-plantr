@@ -14,13 +14,14 @@ class SittersController < ApplicationController
 
   def new
     @sitter = Sitter.new
+    @user = current_user
   end
 
   def create
     @sitter = Sitter.new(sitter_params)
     @sitter.user = current_user
     if @sitter.save
-      redirect_to user_sitter_path(@sitter)
+      redirect_to sitters_url
     else
       render :new, status: :unprocessable_entity
     end

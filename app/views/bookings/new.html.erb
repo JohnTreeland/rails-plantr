@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center">
+  <div class="col-6 justify-content-md-center bg-white p-5 mb-3 rounded">
+    <div class="row">
+      <div class="col-12">
+        <h2>Create a booking with your plant sitter</h2>
+      </div>
+    </div>
+
+    <%= simple_form_for [@user, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :plants_quantity %>
+      <%= f.button :submit, "Create booking", class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
+</div>
