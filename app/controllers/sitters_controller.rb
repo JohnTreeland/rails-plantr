@@ -6,6 +6,10 @@ class SittersController < ApplicationController
     @sitters = Sitter.all
   end
 
+  def my_sitters
+    @sitters = Sitter.where(user: current_user)
+  end
+
   def show; end
 
   def new
