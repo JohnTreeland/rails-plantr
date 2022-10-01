@@ -1,6 +1,7 @@
 <h1>Agendas disponbles</h1>
 <ol>
- <%= @bookings.each do |booking| %>
-  <%= booking. %>
-  <% end %>
+<% @bookings.each do |booking| %>
+  <h2>Nombre: <%= booking.user.first_name %></h2>
+  <p>Duración: <%= booking.start_date %> - <%= booking.end_date %></p>
+<% end %>
 </ol>
