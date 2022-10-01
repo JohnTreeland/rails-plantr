@@ -4,6 +4,9 @@
   <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
   <%= link_to "View sitter details", sitter_path(sitter) %>
   <% if sitter.user == current_user %>
-    <%= link_to "delete availability", "#" %>
+  <%= link_to "Delete",
+    sitter_path(sitter),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+   %>
   <% end %>
 <% end %>
