@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center">
+  <div class="col-6 justify-content-md-center bg-white p-5 mb-3 rounded">
+    <div class="row">
+      <div class="col-12">
+        <h2>Add availability as a sitter</h2>
+      </div>
+    </div>
+
+    <%= simple_form_for [@user, @sitter] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= button_to "Update", update_sitter_path(current_user, @sitter), :method => :patch %>
+      <%# <%= f.button :submit, "Edit sitter", class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
+</div>
