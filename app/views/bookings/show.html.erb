@@ -1,0 +1,4 @@
+<h2>Nombre: <%= @booking.user.first_name %></h2>
+<p>Duración: <%= @booking.start_date %> - <%= @booking.end_date %></p>
+<p>Cantidad de plantas: <%= @booking.plants_quantity%> </p>
+<%= link_to "View bookings", bookings_path%>

@@ -2,12 +2,11 @@
   <div class="container-fluid">
     <div class="d-flex">
       <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "Logo" %>
+        <%= image_tag "https://cdn-icons-png.flaticon.com/512/100/100662.png" %>
+        <%#= image_tag("logo.jpeg") %>
       <% end %>
       <h1 class="title">Plantr</h1>
     </div>
-
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,7 +28,7 @@
               <% if current_user.sitter %>
                 <%= link_to "View my sitters", user_sitters_path(current_user), class: "dropdown-item" %>
               <% end %>
-              <%= link_to "View my bookings", "#", class: "dropdown-item" %>
+              <%= link_to "View my bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
