@@ -3,4 +3,5 @@
   <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
   <%= link_to "View sitter details", sitter_path(sitter) %>
   <%= link_to "Book plant sitter", new_sitter_booking_path(current_user) %>
+  <%= link_to "Edit Sitter", edit_user_sitter_path(current_user, sitter) %>
 <% end %>

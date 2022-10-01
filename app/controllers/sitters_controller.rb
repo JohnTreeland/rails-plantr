@@ -27,12 +27,15 @@ class SittersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+
+  end
 
   def update
+    @sitter.user = current_user
     @sitter.update(sitter_params)
     if @sitter.save
-      redirect_to user_sitter_path(@sitter)
+      redirect_to sitter_path(@sitter)
     else
       render :edit, status: :unprocessable_entity
     end

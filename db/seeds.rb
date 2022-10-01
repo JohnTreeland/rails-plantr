@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+5.times do
+ user = User.new(email: Faker::Internet.email, remember_created_at: Faker::Internet.password, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, sitter:
+  [true, false].sample)
+ user.save
+ puts "se creo #{user.id}"
+end
+# 5.times do
+#   sitter = Sitters.new(user_id: Faker::Internet.email, remember_created_at: Faker::Internet.password, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, sitter:
+#    [true, false].sample)
+#   user.save
+#   puts "se creo #{sitter.id}"
+#  end
