@@ -40,6 +40,7 @@ class SittersController < ApplicationController
 
   def destroy
     @sitter.destroy
+    redirect_to sitters_url
     # borrar las booking de este sitter
   end
 

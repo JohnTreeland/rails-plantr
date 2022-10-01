@@ -30,7 +30,7 @@
               <% if current_user.sitter %>
                 <%= link_to "View my sitters", user_sitters_path(current_user), class: "dropdown-item" %>
               <% end %>
-              <%= link_to "View my bookings", "#", class: "dropdown-item" %>
+              <%= link_to "View my bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
