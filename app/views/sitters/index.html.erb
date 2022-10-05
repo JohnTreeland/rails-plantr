@@ -1,6 +1,18 @@
-<% @sitters.each do |sitter| %>
-  <h2>Nombre: <%= sitter.user.first_name %></h2>
-  <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
-  <%= link_to "View sitter details", sitter_path(sitter) %>
-  <%= link_to "Book plant sitter", new_sitter_booking_path(sitter) %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @sitters.each do |sitter| %>
+      <div class="col-4">
+        <div class="card">
+          <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
+" class="card-img-top">
+          <div class="card-body">
+            <h2>Nombre: <%= sitter.user.first_name %></h2>
+            <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
+            <%= link_to "View sitter details", sitter_path(sitter) %>
+            <%= link_to "Book plant sitter", new_sitter_booking_path(sitter) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
