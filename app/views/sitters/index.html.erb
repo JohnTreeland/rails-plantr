@@ -1,6 +1,10 @@
-<% @sitters.each do |sitter| %>
-  <h2>Nombre: <%= sitter.user.first_name %></h2>
-  <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
-  <%= link_to "View sitter details", sitter_path(sitter) %>
-  <%= link_to "Book plant sitter", new_sitter_booking_path(sitter) %>
+<% if @sitters.empty? %>
+  <h2>Sin resultados</h2>
+<% else %>
+  <% @sitters.each do |sitter| %>
+    <h2>Nombre: <%= sitter.user.first_name %></h2>
+    <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
+    <%= link_to "View sitter details", sitter_path(sitter) %>
+    <%= link_to "Book plant sitter", new_sitter_booking_path(sitter) %>
+  <% end %>
 <% end %>
