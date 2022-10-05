@@ -9,6 +9,7 @@
     <%= simple_form_for [@user, @sitter] do |f| %>
       <%= f.input :start_date %>
       <%= f.input :end_date %>
+      <%= f.input :photo, as: :file %>
       <%= f.button :submit, "Add sitter", class: "btn btn-primary mb-3" %>
     <% end %>
   </div>

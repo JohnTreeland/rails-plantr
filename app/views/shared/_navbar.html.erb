@@ -23,7 +23,11 @@
             <%= link_to "View all sitters", sitters_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
+          <% if current_user.photo.attached?  %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style: "height: 50px" %>
+            <% else %>
             <%= image_tag "https://media.istockphoto.com/vectors/aloe-vera-in-doodle-style-cute-cartoon-plant-in-pot-colorful-vector-vector-id1354593962?k=20&m=1354593962&s=612x612&w=0&h=y4zu6MSY3yNT3cWMV1dDhAijUYJBl0uvH8YDl8fLWmU=", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.sitter %>
                 <%= link_to "View my sitters", user_sitters_path(current_user), class: "dropdown-item" %>
