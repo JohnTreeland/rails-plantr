@@ -8,7 +8,7 @@ User.destroy_all
 cities = %w[Medellin Envigado Sabaneta]
 
 # Creación de los usuarios (5)
-4.times do
+9.times do
   user = User.create(
     email: Faker::Internet.email,
     password: "123456",
@@ -42,24 +42,16 @@ romario = User.create!(
 
 # Sitters que le pertenecen a Romario
 
-for i in 0..3 do
-  sitter = Sitter.create(
-    user_id: romario.id,
-    start_date: Date.today + (30*i),
-    end_date: Date.today + 5 + (30*i)
-  )
-  sitter.save
-end
+random_day = (2..30).to_a
+month = (0..2).to_a
 
-# Bookings a romario como sitter
-
-for i in 0..1 do
-  booking = Booking.create(
-    user_id: User.all[User.first.id + i],
-    sitter_id: Sitter.first.id,
-    start_date: Sitter.first.start_date,
-    end_date: Sitter.first.end_date,
-    plants_quantity: (1..15).to_a.sample
-  )
-  booking.save
+User.all.each do |user|
+  start_date = Date.today + (month.sample * 30) + random_day.sample
+  if user.sitter
+    Sitter.create!(
+      user: user,
+      start_date: start_date,
+      end_date: start_date + random_day.sample + (month.sample * 30)
+    )
+  end
 end
