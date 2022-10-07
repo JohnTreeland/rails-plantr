@@ -4,6 +4,7 @@ Booking.destroy_all
 Sitter.destroy_all
 # Borro todos los usuarios
 User.destroy_all
+puts "previous db destroyed"
 
 cities = %w[Medellin Envigado Sabaneta]
 
@@ -21,10 +22,9 @@ cities = %w[Medellin Envigado Sabaneta]
     sitter: [true, false].sample
   )
   user.save
-  p "User saved"
 end
 
-p "random users created"
+puts "9 Random users created"
 
 # Usuario para la demo
 
@@ -40,6 +40,7 @@ romario = User.create!(
   sitter: true
 )
 
+puts "Romario created"
 # Sitters que le pertenecen a Romario
 
 random_day = (2..30).to_a
@@ -55,3 +56,5 @@ User.all.each do |user|
     )
   end
 end
+
+puts "Sitters added"
