@@ -4,7 +4,9 @@ class SittersController < ApplicationController
 
   def index
     if params[:start_date].present? && params[:end_date].present?
-      @sitters = Sitter.where(start_date: params[:start_date], end_date: params[:end_date])
+      start_date = params[:start_date]
+      end_date = params[:end_date]
+      @sitters = Sitter.where(start_date: start_date..end_date).or(Sitter.where(end_date: start_date..end_date))
     else
       @sitters = Sitter.all
     end

@@ -1,11 +1,32 @@
 <div class="container">
+  <div class="container">
+    <%= form_with url: sitters_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Looking your City"
+      %>
+      <%= text_field_tag :start_date,
+        params[:start_date],
+        class: "form-control", type: :date,
+        placeholder: "start day D-M-A"
+      %>
+      <%= text_field_tag :end_date,
+        params[:end_date],
+        class: "form-control", type: :date,
+        placeholder: "End day D-M-A"
+      %>
+
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
   <% if @sitters.empty? %>
     <h2>Sin resultados</h2>
   <% else %>
     <div class="row">
       <% @sitters.each do |sitter| %>
         <div class="col-4">
-          <div class="card">
+          <div class="card my-2">
             <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
   " class="card-img-top">
             <div class="card-body">

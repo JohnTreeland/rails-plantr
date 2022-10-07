@@ -9,15 +9,17 @@
       %>
       <%= text_field_tag :start_date,
         params[:start_date],
-        class: "form-control",
+        class: "form-control", type: :date,
         placeholder: "start day D-M-A"
       %>
       <%= text_field_tag :end_date,
         params[:end_date],
-        class: "form-control",
+        class: "form-control", type: :date,
         placeholder: "End day D-M-A"
       %>
+
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
+
   </div>
 </div>
