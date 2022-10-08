@@ -1,24 +1,24 @@
-<div class="container mt-3">
+<div class="container">
+ <div class="container mt-3">
   <h1>Cuidadores agendados</h1>
-  <ol>
-    <div class="row">
-      <% @bookings.each do |booking| %>
-        <div class="col-4">
-          <div class="card my-2">
-            <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
-" class="card-img-top">
-            <div class="card-body">
-              <h2><%= booking.sitter.user.first_name %></h2>
-              <p>Cuidará tus plantas desde <b><%= booking.start_date %></b> hasta <b><%= booking.end_date %></b></p>
-              <p>Contacta a <%= booking.sitter.user.first_name %> <br>
-              <% if booking.sitter.user.phone_number %>
-                Cel: <%= booking.sitter.user.phone_number %> <br>
-              <% end %>
-              Correo: <%= booking.sitter.user.email %></p
-            </div>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-4">
+        <div class="card my-2">
+              <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
+  " class="card-img-top">
+              <div class="card-body">
+                <h2><%= booking.sitter.user.first_name %></h2>
+                <p>Cuidará tus plantas desde <b><%= booking.start_date %></b> hasta <b><%= booking.end_date %></b></p>
+                <p>Contacta a <%= booking.user.first_name %></p>
+                <% if booking.sitter.user.phone_number %>
+                  <p>Cel: <%= booking.sitter.user.phone_number %></p>
+                <% end %>
+                  <p>Correo: <%= booking.sitter.user.email %></p>
+              </div>
           </div>
-       <% end %>
+        </div>
+      <% end %>
      </div>
-    </ol>
   </div>
 </div>
