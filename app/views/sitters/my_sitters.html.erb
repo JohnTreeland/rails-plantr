@@ -1,15 +1,26 @@
 <div class="container mt-3">
   <h2>My sitters</h2>
-  <% @sitters.each do |sitter| %>
-    <h2>Nombre: <%= sitter.user.first_name %></h2>
-    <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
-    <%= link_to "View sitter details", sitter_path(sitter) %>
-    <% if sitter.user == current_user %>
-      <%= link_to "Edit Sitter", edit_user_sitter_path(current_user, sitter) %>
-      <%= link_to "Delete",
-        sitter_path(sitter),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
+  <div class="row">
+    <% @sitters.each do |sitter| %>
+      <div class="col-4">
+        <div class="card my-2">
+              <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
+    " class="card-img-top">
+              <div class="card-body">
+                <h2>Nombre: <%= sitter.user.first_name %></h2>
+                <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
+                  <%= link_to "View sitter details", sitter_path(sitter) %>
+                  <% if sitter.user == current_user %>
+                    <%= link_to "Edit Sitter", edit_user_sitter_path(current_user, sitter) %>
+                    <%= link_to "Delete",
+                     sitter_path(sitter),
+                     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                    %>
+                  <% end %>
+              </div>
+        </div>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
+

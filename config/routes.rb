@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get "users/:user_id/sitters", to: "sitters#my_sitters", as: "my_sitters"
 
   resources :sitters, only: %i[index show] do
-    resources :bookings, only: %i[new create edit update]
+    resources :bookings, only: %i[new create edit update show]
   end
 
-  resources :bookings, only: %i[index show]
+  resources :bookings, only: %i[index]
 
   resources :bookings, only: :destroy
   delete '/sitters/:id', to: 'sitters#destroy'
