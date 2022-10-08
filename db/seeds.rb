@@ -28,7 +28,7 @@ puts "9 Random users created"
 
 # Usuario para la demo
 
-User.create!(
+romario = User.create!(
   email: 'roma@mes.com',
   password: "123456",
   password_confirmation: "123456",
@@ -54,7 +54,7 @@ month = (0..2).to_a
 
 User.all.each do |user|
   start_date = Date.today + (month.sample * 30) + random_day.sample
-  if user.sitter
+  if user.sitter && user != romario
     Sitter.create!(
       user: user,
       start_date: start_date,
@@ -66,3 +66,11 @@ User.all.each do |user|
 end
 
 puts "Sitters added"
+
+Sitter.create!(
+  user: romario,
+  start_date: Date.new(2022,10,20),
+  end_date: Date.new(2022,11,30),
+  city: cities[0],
+  description: description_3
+)
