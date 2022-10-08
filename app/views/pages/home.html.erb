@@ -1,46 +1,46 @@
-<div id="carouselExampleDark" class="carousel carousel-dark slide my-2" style= "margin-top:-15px !important"
- data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <div id="carouselExampleDark" class="carousel carousel-white slide"
+  data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner" >
+      <div class="carousel-item active" data-bs-interval="10000" style="height: 300px">
+        <img src="https://media.admagazine.com/photos/618a64b929327ed3de99d6bc/master/w_1600%2Cc_limit/73453.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>¡Bienvenidos a Plantr!</h1>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000" style="height: 300px">
+        <img src="https://decoracion2.com/imagenes/2021/08/trucos-caseros-para-el-cuidado-de-las-plantas-7.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Encuentra los mejores cuidadores para ti</h1>
+        </div>
+      </div>
+      <div class="carousel-item" style="height: 300px">
+        <img src="https://www.hogarmania.com/archivos/202002/principales-dudas-sobre-el-cuidado-de-los-cactus-y-las-plantas-crasas-1280x720x80xX.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Cerca y rápido sin muchas búsquedas</h1>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="https://www.serpar.gob.pe/wp-content/uploads/2021/03/10-cosas-que-debes-saber-sobre-el-cuidado-plantas.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h2> Con Plantr.</h2>
-      </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="https://media.admagazine.com/photos/618a65003174d0288cf2d1bf/master/w_1600%2Cc_limit/71943.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h2>Encuentra los mejores cuidadores para ti.</h2>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://media.admagazine.com/photos/618a5e25259e475000cce734/master/w_1600,c_limit/92433.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h2>Cerca y rapido sin muchas busquedas</h2>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
 );">
   <div class="container">
     <%= form_with url: sitters_path, method: :get, class: "d-flex" do %>
       <%= select_tag :city,
-        options_for_select([["Medellìn"], ["Envigado"], ["Itagui"]]),
+        options_for_select([["Medellín"], ["Envigado"], ["Itagui"]]),
         class: "form-control",
         placeholder: "Looking your City"
       %>
@@ -54,9 +54,8 @@
         class: "form-control", type: :date,
         placeholder: "End day D-M-A"
       %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
 
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-
+    </div>
   </div>
-</div>
