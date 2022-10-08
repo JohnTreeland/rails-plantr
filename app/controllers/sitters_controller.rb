@@ -61,6 +61,6 @@ class SittersController < ApplicationController
   end
 
   def sitter_params
-    params.require(:sitter).permit(:end_date, :start_date, :photo, :description)
+    params.require(:sitter).permit(:end_date, :start_date, :photo, :description, :city)
   end
 end
