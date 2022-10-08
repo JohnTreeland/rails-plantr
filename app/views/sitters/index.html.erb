@@ -23,12 +23,17 @@
   <% if @sitters.empty? %>
     <h2>Sin resultados</h2>
   <% else %>
-    <div class="row">
+    <div class="row gy-3 mt-3">
       <% @sitters.each do |sitter| %>
         <div class="col-4">
-          <div class="card my-2">
-            <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
-  " class="card-img-top">
+          <div class="card h-100">
+            <% if sitter.photo.attached? %>
+              <%= cl_image_tag sitter.photo.key, class: "card-img-top", style: "height: 200px"  %>
+            <% elsif sitter.user.photo.attached? %>
+              <%= cl_image_tag sitter.user.photo.key, class: "card-img-top", style: "height: 200px" %>
+            <% else %>
+              <%= image_tag "https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f", class: "card-img-top", style: "height: 200px" %>
+            <% end %>
             <div class="card-body">
               <h2> <%= sitter.user.first_name %></h2>
               <h4>Ciudad: <%= sitter.city %></h4>
