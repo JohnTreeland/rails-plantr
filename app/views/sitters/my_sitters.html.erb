@@ -1,13 +1,15 @@
-<h2>My sitters</h2>
-<% @sitters.each do |sitter| %>
-  <h2>Nombre: <%= sitter.user.first_name %></h2>
-  <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
-  <%= link_to "View sitter details", sitter_path(sitter) %>
-  <% if sitter.user == current_user %>
-    <%= link_to "Edit Sitter", edit_user_sitter_path(current_user, sitter) %>
-    <%= link_to "Delete",
-      sitter_path(sitter),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
+<div class="container mt-3">
+  <h2>My sitters</h2>
+  <% @sitters.each do |sitter| %>
+    <h2>Nombre: <%= sitter.user.first_name %></h2>
+    <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
+    <%= link_to "View sitter details", sitter_path(sitter) %>
+    <% if sitter.user == current_user %>
+      <%= link_to "Edit Sitter", edit_user_sitter_path(current_user, sitter) %>
+      <%= link_to "Delete",
+        sitter_path(sitter),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
