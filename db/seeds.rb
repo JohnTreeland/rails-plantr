@@ -40,6 +40,18 @@ romario = User.create!(
   sitter: true
 )
 
+juanma = User.create!(
+  email: 'juan@arboleda.com',
+  password: "123456",
+  password_confirmation: "123456",
+  first_name: 'Juan Manuel',
+  last_name: 'Arboleda',
+  phone_number: Faker::PhoneNumber.phone_number_with_country_code,
+  address: Faker::Address.full_address,
+  city: 'Envigado',
+  sitter: false
+)
+
 puts "Romario created"
 
 # Descripciones de los sitters
