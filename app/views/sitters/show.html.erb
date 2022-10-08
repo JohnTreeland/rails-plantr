@@ -22,11 +22,12 @@
     </div>
     <div class="col-4">
       <div class="card">
-        <div class="card-body">
+        <div class="card-header bg-secondary text-white">
           <h3>Puedo cuidar tus plantas entre</h3>
+        </div>
+        <div class="card-body">
           <h3><b><%= @sitter.start_date %></b> y</h3>
           <h3><b><%= @sitter.end_date %></b></h3>
-          <hr>
           <%= link_to "Agéndame", new_sitter_booking_path(@sitter), class: "btn btn-primary" %>
         </div>
       </div>

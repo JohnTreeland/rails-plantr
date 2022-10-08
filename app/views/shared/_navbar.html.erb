@@ -16,11 +16,11 @@
         <% if user_signed_in? %>
           <% if current_user.sitter %>
             <li class="nav-item active">
-              <%= link_to "Add sitter", new_user_sitter_path(current_user), class: "nav-link" %>
+              <%= link_to "Agregar disponibilidad", new_user_sitter_path(current_user), class: "nav-link text-info" %>
             </li>
           <% end %>
           <li class="nav-item">
-            <%= link_to "View all sitters", sitters_path, class: "nav-link" %>
+            <%= link_to "Ver cuidadores", sitters_path, class: "nav-link text-info" %>
           </li>
           <li class="nav-item dropdown">
           <% if current_user.photo.attached?  %>
@@ -30,15 +30,15 @@
           <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.sitter %>
-                <%= link_to "View my sitters", user_sitters_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Perfil", user_sitters_path(current_user), class: "dropdown-item" %>
               <% end %>
-              <%= link_to "View my bookings", bookings_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Cuidadores agendados", bookings_path, class: "dropdown-item" %>
+              <%= link_to "Cerrar sesión", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <% else %>
           <li class="btn btn-primary">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
