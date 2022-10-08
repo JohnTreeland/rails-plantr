@@ -9,7 +9,7 @@
               <div class="card-body">
                 <h2><%= booking.sitter.user.first_name %></h2>
                 <p>Cuidará tus plantas desde <b><%= booking.start_date %></b> hasta <b><%= booking.end_date %></b></p>
-                <p>Contacta a <%= booking.user.first_name %> <br>
+                <p>Contacta a <%= booking.sitter.user.first_name %> <br>
                 <% if booking.sitter.user.phone_number %>
                   Cel: <%= booking.sitter.user.phone_number %> <br>
                 <% end %>
