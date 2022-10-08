@@ -35,26 +35,25 @@
     </button>
   </div>
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
-  );">
-    <div class="container">
-      <%= form_with url: sitters_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Ciudad"
-        %>
-        <%= text_field_tag :start_date,
-          params[:start_date],
-          class: "form-control", type: :date,
-          placeholder: "start day D-M-A"
-        %>
-        <%= text_field_tag :end_date,
-          params[:end_date],
-          class: "form-control", type: :date,
-          placeholder: "End day D-M-A"
-        %>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
+);">
+  <div class="container">
+    <%= form_with url: sitters_path, method: :get, class: "d-flex" do %>
+      <%= select_tag :city,
+        options_for_select([["Medellín"], ["Envigado"], ["Itagui"]]),
+        class: "form-control",
+        placeholder: "Looking your City"
+      %>
+      <%= text_field_tag :start_date,
+        params[:start_date],
+        class: "form-control", type: :date,
+        placeholder: "start day D-M-A"
+      %>
+      <%= text_field_tag :end_date,
+        params[:end_date],
+        class: "form-control", type: :date,
+        placeholder: "End day D-M-A"
+      %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
 

@@ -3,10 +3,11 @@ class SittersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if params[:start_date].present? && params[:end_date].present?
+    if params[:city].present? && params[:start_date].present? && params[:end_date].present?
       start_date = params[:start_date]
       end_date = params[:end_date]
-      @sitters = Sitter.where(start_date: start_date..end_date).or(Sitter.where(end_date: start_date..end_date))
+      @sitters = Sitter.where('start_date < ?', start_date)
+      .and(Sitter.where('end_date > ?', end_date)).and(Sitter.where(city: params[:city]))
     else
       @sitters = Sitter.all
     end
