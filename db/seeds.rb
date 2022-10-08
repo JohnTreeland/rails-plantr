@@ -6,7 +6,7 @@ Sitter.destroy_all
 User.destroy_all
 puts "previous db destroyed"
 
-cities = %w[Medellin Envigado Sabaneta]
+cities = %w[Medellín Envigado Itagüí]
 
 # Creación de los usuarios (5)
 9.times do
@@ -36,7 +36,7 @@ User.create!(
   last_name: 'Mestra',
   phone_number: Faker::PhoneNumber.phone_number_with_country_code,
   address: Faker::Address.full_address,
-  city: 'Medellin',
+  city: 'Medellín',
   sitter: true
 )
 
@@ -59,7 +59,8 @@ User.all.each do |user|
       user: user,
       start_date: start_date,
       end_date: start_date + random_day.sample + (month.sample * 30),
-      description: descriptions.sample
+      description: descriptions.sample,
+      city: cities.sample
     )
   end
 end
