@@ -39,8 +39,8 @@
 );">
   <div class="container">
     <%= form_with url: sitters_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
+      <%= select_tag :city,
+        options_for_select([["Medellìn"], ["Envigado"], ["Itagui"]]),
         class: "form-control",
         placeholder: "Looking your City"
       %>
