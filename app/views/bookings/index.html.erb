@@ -1,5 +1,5 @@
-<h1>Cuidadores agendados</h1>
-<ol>
+<div class="container">
+ <h1>Cuidadores agendados</h1>
   <div class="row">
     <% @bookings.each do |booking| %>
       <div class="col-4">
@@ -9,14 +9,14 @@
               <div class="card-body">
                 <h2><%= booking.sitter.user.first_name %></h2>
                 <p>Cuidará tus plantas desde <b><%= booking.start_date %></b> hasta <b><%= booking.end_date %></b></p>
-                <p>Contacta a <%= booking.user.first_name %> <br>
+                <p>Contacta a <%= booking.user.first_name %></p>
                 <% if booking.sitter.user.phone_number %>
-                  Cel: <%= booking.sitter.user.phone_number %> <br>
+                  <p>Cel: <%= booking.sitter.user.phone_number %></p>
                 <% end %>
-                Correo: <%= booking.sitter.user.email %></p
+                  <p>Correo: <%= booking.sitter.user.email %></p>
               </div>
         </div>
       </div>
     <% end %>
   </div>
-</ol>
+</div>
