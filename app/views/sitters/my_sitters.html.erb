@@ -1,19 +1,24 @@
 <div class="container mt-3">
-  <h2>My sitters</h2>
+  <h2>Mis disponibilidades como cuidador</h2>
   <div class="row">
     <% @sitters.each do |sitter| %>
       <div class="col-4">
         <div class="card my-2">
-              <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
-    " class="card-img-top">
+              <% if sitter.photo.attached? %>
+                <%= cl_image_tag sitter.photo.key, class: "card-img-top", style: "height: 200px"  %>
+              <% elsif sitter.user.photo.attached? %>
+                <%= cl_image_tag sitter.user.photo.key, class: "card-img-top", style: "height: 200px" %>
+              <% else %>
+                <%= image_tag "https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f", class: "card-img-top", style: "height: 200px" %>
+              <% end %>
               <div class="card-body">
                 <h2><%= sitter.user.first_name %></h2>
                 <p>Disponibilidad desde: <b><%= sitter.start_date %></b> - hasta: <b><%= sitter.end_date %></b></p>
-                  <%= link_to "View sitter details", sitter_path(sitter), class:  "btn btn-success mx-3 my-2" %>
+                  <%= link_to "Ver detalle", sitter_path(sitter), class:  "btn btn-success me-2" %>
                   <% if sitter.user == current_user %>
-                    <%= link_to "Edit Sitter", edit_user_sitter_path(current_user, sitter), class:  "btn btn-success mx-3 my-2" %>
-                    <%= link_to "Delete",
-                     sitter_path(sitter), class:  "btn btn-success mx-3 my-2",
+                    <%= link_to "Editar", edit_user_sitter_path(current_user, sitter), class:  "btn btn-success me-2" %>
+                    <%= link_to "Eliminar",
+                     sitter_path(sitter), class:  "btn btn-success me-2",
                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
                     %>
                 <% end %>
@@ -23,4 +28,3 @@
     <% end %>
   </div>
 </div>
-

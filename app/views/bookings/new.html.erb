@@ -1,16 +1,16 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mt-3">
   <div class="col-6 justify-content-md-center bg-white p-5 mb-3 rounded">
     <div class="row">
-      <div class="col-4">
-        <h2>Create a booking with your plant sitter</h2>
+      <div class="col-12">
+        <h2>Agenda al cuidador para tus plantas</h2>
       </div>
     </div>
-
+    <p>Recuerda que la disponibilidad del cuidador es de <b><%= @sitter.start_date %></b> a <b><%= @sitter.end_date %></b></p>
     <%= simple_form_for [@sitter, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.input :plants_quantity %>
-      <%= f.button :submit, "Create booking", class: "btn btn-primary mb-3" %>
+      <%= f.input :start_date, label: "Fecha inicial" %>
+      <%= f.input :end_date, label: "Fecha final" %>
+      <%= f.input :plants_quantity, label: "¿Cuántas plantas tienes?" %>
+      <%= f.button :submit, "Agenda", class: "btn btn-primary mb-3" %>
     <% end %>
   </div>
 </div>

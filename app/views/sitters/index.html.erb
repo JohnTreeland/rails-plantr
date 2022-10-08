@@ -36,7 +36,7 @@
             <% end %>
             <div class="card-body">
               <h2> <%= sitter.user.first_name %></h2>
-              <h4>Ciudad: <%= sitter.city %></h4>
+              <h4><%= sitter.city %></h4>
               <p>Disponibilidad desde <b><%= sitter.start_date %></b> hasta <b><%= sitter.end_date %></b></p>
               <%= link_to "View details", sitter_path(sitter), class:  "btn btn-success mx-3" %>
               <%= link_to "Book sitter", new_sitter_booking_path(sitter), class: "btn btn-success mx-3" %>

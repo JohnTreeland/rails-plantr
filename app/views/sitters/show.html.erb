@@ -36,23 +36,14 @@
   <% if Sitter.where(user: @sitter.user).count > 1 %>
   <hr>
     <h2>Este cuidador también está disponible en estas fechas</h2>
-    <div class="row">
-      <% Sitter.where(user: @sitter.user).each do |sitter| %>
+     <% Sitter.where(user: @sitter.user).each do |sitter| %>
         <% unless sitter == @sitter %>
-          <div class="col-4">
-            <div class="card my-2">
-              <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
-    " class="card-img-top">
-              <div class="card-body">
-                <h2>Nombre: <%= sitter.user.first_name %></h2>
-                <p>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %></p>
-                <%= link_to "View sitter details", sitter_path(sitter) %>
-                <%= link_to "Book plant sitter", new_sitter_booking_path(sitter) %>
-              </div>
-            </div>
-          </div>
+          <ul>
+            <li><h4>Disponibilidad <%= sitter.start_date %> - <%= sitter.end_date %> <%= link_to "Ver detalle", sitter_path(sitter), class: "btn btn-primary" %>
+            <%= link_to "Agendar", new_sitter_booking_path(sitter), class: "btn btn-primary" %></h4>
+            </li>
+          </ul>
         <% end %>
       <% end %>
-    </div>
   <% end %>
 </div>

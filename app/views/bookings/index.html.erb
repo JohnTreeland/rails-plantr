@@ -4,8 +4,13 @@
     <% @bookings.each do |booking| %>
       <div class="col-4">
         <div class="card my-2">
-              <img src="https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f
-  " class="card-img-top">
+          <% if booking.sitter.photo.attached? %>
+            <%= cl_image_tag booking.sitter.photo.key, class: "card-img-top", style: "height: 200px"  %>
+          <% elsif booking.sitter.user.photo.attached? %>
+            <%= cl_image_tag bookinh.sitter.user.photo.key, class: "card-img-top", style: "height: 200px" %>
+          <% else %>
+            <%= image_tag "https://img.freepik.com/free-photo/houseplant-background-plant-lovers_53876-130004.jpg?w=740&t=st=1664330565~exp=1664331165~hmac=c24e8fdd059fac29ec263a0a17113edf37dc64b586df368fe5550a8c38ad688f", class: "card-img-top", style: "height: 200px" %>
+          <% end %>
               <div class="card-body">
                 <h2><%= booking.sitter.user.first_name %></h2>
                 <p>Cuidará tus plantas desde <b><%= booking.start_date %></b> hasta <b><%= booking.end_date %></b></p>

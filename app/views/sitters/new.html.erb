@@ -1,18 +1,18 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mt-3">
   <div class="col-6 justify-content-md-center bg-white p-5 mb-3 rounded">
     <div class="row">
       <div class="col-12">
-        <h2>Add availability as a sitter</h2>
+        <h2>Agrega tu disponibilidad como cuidador</h2>
       </div>
     </div>
 
     <%= simple_form_for [@user, @sitter] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.input :city %>
-      <%= f.input :description %>
-      <%= f.input :photo, as: :file %>
-      <%= f.button :submit, "Add sitter", class: "btn btn-primary mb-3" %>
+      <%= f.input :start_date, label: "Fecha inicial" %>
+      <%= f.input :end_date, label: "Fecha final" %>
+      <%= f.input :city, label: "Ciudad", collection: %w[Medellín Envigado Itagüí] %>
+      <%= f.input :description, label: "Descripción" %>
+      <%= f.input :photo, as: :file, label: "Imagen" %>
+      <%= f.button :submit, "Agregar disponibilidad", class: "btn btn-primary mb-3" %>
     <% end %>
   </div>
 </div>
